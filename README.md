@@ -1,24 +1,20 @@
-# README
+# Notes App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Create, Read, Edit, and Delete notes!
 
-Things you may want to cover:
+# Technologies
+* Ruby Version: 2.6.6
+* Rails Version: 6.0.3.2
 
-* Ruby version
+# Included Gems
+* [Devise](https://github.com/heartcombo/devise)
 
-* System dependencies
+# Features
+* Create a notebook with a title and body
+* Read your existing notebooks
+* Edit a notebook
+* Delete a notebook
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### To Do:
+* Add a body section
+* Add styles
