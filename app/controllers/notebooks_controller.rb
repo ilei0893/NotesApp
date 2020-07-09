@@ -5,14 +5,12 @@ class NotebooksController < ApplicationController
   # GET /notebooks
   # GET /notebooks.json
   def index
-    @notebooks = policy_scope(Notebook)
-    # binding.pry
+    @notebooks = current_user.notebooks
   end
 
   # GET /notebooks/1
   # GET /notebooks/1.json
   def show
-    authorize @notebook
   end
 
   # GET /notebooks/new
@@ -22,14 +20,13 @@ class NotebooksController < ApplicationController
 
   # GET /notebooks/1/edit
   def edit
-    authorize @notebook
   end
 
   # POST /notebooks
   # POST /notebooks.json
   def create
     @notebook = current_user.notebooks.build(notebook_params)
-    authorize @notebook
+
     respond_to do |format|
       if @notebook.save
         format.html { redirect_to @notebook, notice: 'Notebook was successfully created.' }
@@ -68,7 +65,7 @@ class NotebooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_notebook
-      @notebook = Notebook.find (params[:id])
+      @notebook = current_user.notebooks.find (params[:id])
     end
 
     # Only allow a list of trusted parameters through.
