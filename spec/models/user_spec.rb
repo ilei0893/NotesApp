@@ -8,7 +8,7 @@ RSpec.describe User do
             should validate_presence_of(:email)
         end
         
-        it 'validate password' do
+        it 'should validate password' do
             should validate_length_of(:password)
         end 
     end
