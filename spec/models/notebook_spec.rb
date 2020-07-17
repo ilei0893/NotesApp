@@ -1,17 +1,15 @@
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe Notebook, type: :model do
-    subject { Notebook.new(title: "Hello", body: "Test") }
-    before { subject.save }
+RSpec.describe Notebook do 
+    let!(:notebook) {FactoryBot.create(:notebook)}
 
-    it 'title should be present' do
-        subject.title = nil
-        expect(subject).to_not be_valid
+    describe "validations" do
+        it 'should validate title' do
+            should validate_presence_of(:title)
+        end
+
+        it 'should validate body' do
+            should validate_presence_of(:body)
+        end
     end
-    
-    it 'body should be present' do
-        subject.body = nil
-        expect(subject).to_not be_valid
-    end
-    
 end
