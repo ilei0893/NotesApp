@@ -8,6 +8,8 @@ Create, Read, Edit, and Delete notes!
 
 # Included Gems
 * [Devise](https://github.com/heartcombo/devise)
+* [Factory Bot](https://github.com/thoughtbot/factory_bot)
+* [rspec-rails](https://github.com/rspec/rspec-rails)
 
 # Features
 * Create a notebook with a title and body
@@ -16,5 +18,5 @@ Create, Read, Edit, and Delete notes!
 * Delete a notebook
 
 ### To Do:
-* Add a body section
+* Add Request and E2E testing
 * Add styles
