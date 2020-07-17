@@ -6,7 +6,6 @@ class NotebooksController < ApplicationController
   # GET /notebooks.json
   def index
     @notebooks = policy_scope(Notebook)
-    # binding.pry
   end
 
   # GET /notebooks/1
@@ -28,7 +27,8 @@ class NotebooksController < ApplicationController
   # POST /notebooks
   # POST /notebooks.json
   def create
-    @notebook = current_user.notebooks.build(notebook_params)
+    @notebook = Notebook.new(notebook_params)
+    @notebook.user_id = current_user.id
     authorize @notebook
     respond_to do |format|
       if @notebook.save
@@ -44,6 +44,7 @@ class NotebooksController < ApplicationController
   # PATCH/PUT /notebooks/1
   # PATCH/PUT /notebooks/1.json
   def update
+    authorize @notebook
     respond_to do |format|
       if @notebook.update(notebook_params)
         format.html { redirect_to @notebook, notice: 'Notebook was successfully updated.' }
@@ -58,6 +59,7 @@ class NotebooksController < ApplicationController
   # DELETE /notebooks/1
   # DELETE /notebooks/1.json
   def destroy
+    authorize @notebook
     @notebook.destroy
     respond_to do |format|
       format.html { redirect_to notebooks_url, notice: 'Notebook was successfully destroyed.' }
@@ -73,6 +75,6 @@ class NotebooksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def notebook_params
-      params.require(:notebook).permit(:title, :body)
+      params.require(:notebook).permit(:title, :body, user_ids: [])
     end
 end
