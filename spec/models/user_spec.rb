@@ -1,16 +1,15 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-    subject { User.new(email: "test@test.com", password:"pass") }
-    before { subject.save }
-
+RSpec.describe User do
+    let!(:user) { FactoryBot.create(:user) }
+  
     it 'email should be present' do
-        subject.email = nil
-        expect(subject).to_not be_valid
+        user.email = nil
+        expect(user).to_not be_valid
     end
     
     it 'password should be greater than 6 characters' do
-        expect(subject).to_not be_valid
+        expect(user).to validate_length_of(user.password).is_at_least(6)
     end 
     
 end
