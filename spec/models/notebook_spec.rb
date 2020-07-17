@@ -3,15 +3,13 @@ require "rails_helper"
 RSpec.describe Notebook do 
     let!(:notebook) {FactoryBot.create(:notebook)}
 
-    context "user exists" do
-        it 'title should be present' do
-            notebook.title = nil
-            expect(notebook).to_not be_valid
+    describe "validations" do
+        it 'should validate title' do
+            should validate_presence_of(:title)
         end
 
-        it 'body should be present' do
-            subject.body = nil
-            expect(subject).to_not be_valid
+        it 'should validate body' do
+            should validate_presence_of(:body)
         end
     end
 end
