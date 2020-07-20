@@ -10,6 +10,6 @@ RSpec.describe User do
         
         it 'should validate password' do
             should validate_length_of(:password)
-        end 
+        end
     end
 end
