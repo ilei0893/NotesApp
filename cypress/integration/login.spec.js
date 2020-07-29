@@ -7,8 +7,8 @@ describe("Login test", () => {
     cy.get("form");
 
     cy.get('input[name="user[email]"]')
-      .type("test2@test.com")
-      .should("have.value", "test2@test.com");
+      .type("test@test.com")
+      .should("have.value", "test@test.com");
 
     cy.get('input[name="user[password]"]')
       .type("password")
