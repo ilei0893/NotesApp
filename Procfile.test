@@ -1,0 +1,2 @@
+web: RAILS_ENV=test bundle exec rails s -p 3001 -P tmp/server-e2e.pid
+
