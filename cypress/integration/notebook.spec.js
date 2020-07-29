@@ -1,24 +1,6 @@
 describe("notebook CRUD operations", () => {
-  before(() => {
-    cy.exec("rake db:reset && rake db:seed RAILS_ENV=test");
-  });
   beforeEach(() => {
-    cy.visit("/");
-    cy.contains("Sign in").click();
-
-    cy.url().should("include", "sign_in");
-    cy.get("form");
-
-    cy.get('input[name="user[email]"]')
-      .type("test@test.com")
-      .should("have.value", "test@test.com");
-
-    cy.get('input[name="user[password]"]')
-      .type("password")
-      .should("have.value", "password");
-
-    cy.get(".actions > input").click();
-    cy.url().should("include", "/");
+    cy.login("test@test.com", "password");
   });
 
   it("should visit notebooks page", () => {

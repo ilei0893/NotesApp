@@ -17,5 +17,9 @@
 import "./commands";
 import "./on-rails";
 
+before(() => {
+  cy.app("clean");
+  cy.appScenario("seed");
+});
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
