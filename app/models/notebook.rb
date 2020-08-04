@@ -1,5 +1,5 @@
 class Notebook < ApplicationRecord
   validates :title, :body, presence: true
-  # has_and_belongs_to_many :users
-  has_and_belongs_to_many :users
+  has_many :notebook_users
+  has_many :users, through: :notebook_users
 end

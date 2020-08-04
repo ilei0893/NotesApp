@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'cypress-on-rails', '~> 1.0'
+  gem 'pry-byebug'
 end
 
 group :development do
